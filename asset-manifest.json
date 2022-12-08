@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/nft-marketplace/static/css/main.957eac7d.css",
-    "main.js": "/nft-marketplace/static/js/main.c9b2b158.js",
+    "main.js": "/nft-marketplace/static/js/main.5b8f414f.js",
     "static/media/weekly.png": "/nft-marketplace/static/media/weekly.ea688a7e40d8523116f7.png",
     "static/media/signup.png": "/nft-marketplace/static/media/signup.a9b793281b03e593ad8c.png",
     "static/media/card.png": "/nft-marketplace/static/media/card.9b3c36b4fe8c6c98a28b.png",
@@ -29,10 +29,10 @@
     "static/media/plus.svg": "/nft-marketplace/static/media/plus.a2a9f687ae3b63248d8af9b804ee9a90.svg",
     "index.html": "/nft-marketplace/index.html",
     "main.957eac7d.css.map": "/nft-marketplace/static/css/main.957eac7d.css.map",
-    "main.c9b2b158.js.map": "/nft-marketplace/static/js/main.c9b2b158.js.map"
+    "main.5b8f414f.js.map": "/nft-marketplace/static/js/main.5b8f414f.js.map"
   },
   "entrypoints": [
     "static/css/main.957eac7d.css",
-    "static/js/main.c9b2b158.js"
+    "static/js/main.5b8f414f.js"
   ]
 }
