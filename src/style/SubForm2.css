@@ -1,0 +1,47 @@
+.subForm2 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* border-radius: 20px; */
+  /* overflow: hidden; */
+  /* background: white; */
+}
+.subInput2 {
+  /* display: flex;s */
+  box-sizing: border-box;
+  width: 100%;
+  height: 46px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 20px;
+}
+
+.subBut2 {
+  background: #A259FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 50px;
+  box-sizing: border-box;
+  height: 46px;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 140%;
+}
+
+.subInput2:focus-visible {
+  outline: none;
+}
+
+.subInput2::placeholder {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+}

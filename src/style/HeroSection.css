@@ -1,0 +1,86 @@
+.hero {
+  display: flex;
+  gap: 30px;
+  padding: 80px 0;
+}
+
+.hero-info{
+  gap: 30px;
+}
+
+.hero-headline {
+  gap: 20px;
+}
+
+.hero-headline-text {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 160%;
+}
+
+.hero-button {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-self: flex-start;
+  padding: 20px 50px;
+  background-color: #A259FF;
+  border-radius: 20px;
+}
+
+.hero-button-inner {
+  display: flex;
+  align-items: center;
+}
+
+.additional-info-text {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 160%;
+}
+
+.additional-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-coll {
+  height: 100%;
+}
+
+.hero-nft-card > img {
+  width: 510px;
+}
+
+@media screen and (max-width: 1100px) {
+
+  .hero-nft-card > img {
+    width: 330px;
+  }
+
+  .hero-headline-text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+  }
+
+  .additional-info-text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .hero-nft-card > img {
+    width: 315px;
+  }
+  
+  .hero-button {
+    align-self: normal;
+  }
+
+  .hero {
+    padding: 40px 0;
+  }
+}

@@ -1,0 +1,11 @@
+.button2 {
+  display: flex;
+  justify-content: center;
+  justify-self: flex-start;
+  align-items: center; 
+  padding: 20px 50px;
+  gap: 12px;
+  background: white;
+  color: black;
+  border-radius: 20px;
+}

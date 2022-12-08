@@ -1,0 +1,59 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  font-weight: 600;
+  font-size: 16px;
+
+}
+
+.navigation-logo {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-li-button {
+  padding: 12px 20px;
+}
+
+.nav-sign_up {
+  background-color: #A259FF;
+  padding: 20px 30px;
+  border-radius: 20px;
+}
+
+.nav-sign_up-inner {
+  display: flex;
+}
+
+.nav-sign_up-inner > :first-child{
+  margin-right: 12px;
+}
+
+@media screen and (max-width: 1100px) {
+  .navigation {
+    padding: 15px 50px;
+  }
+  .navigation-logo {
+    gap: 9px;
+  }
+  .navigation-logo-img {
+    width: 24px;
+  }
+  .navigation-logo-text {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .navigation {
+    padding: 15px 30px;
+  }
+}

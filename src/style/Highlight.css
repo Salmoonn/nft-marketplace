@@ -1,0 +1,37 @@
+.highlight-bg {
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.highlight-gradient {
+  background: linear-gradient(180deg, rgba(162, 89, 255, 0) 0%, #A259FF 100%);
+}
+
+.highlight {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 360px 0 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.highlight-body {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.highlight-timer {
+  display: flex;
+  align-items: flex-end;
+}
+
+@media screen and (max-width: 740px) {
+  .highlight {
+    padding: 120px 0 40px;
+  }
+  .button2, .asd2 {
+    align-self: normal;
+  }
+}

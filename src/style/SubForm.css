@@ -1,0 +1,42 @@
+.subForm {
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+  background: white;
+}
+
+.subBut {
+  background: #A259FF;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 50px;
+  box-sizing: border-box;
+  height: 60px;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 140%;
+}
+
+.subInput {
+  display: flex;
+  width: 100%;
+  padding: 0 20px;
+  border: none;
+}
+
+.subInput:focus-visible {
+  outline: none;
+}
+
+.subInput::placeholder {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+}

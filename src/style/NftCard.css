@@ -1,0 +1,70 @@
+.nftCard {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  width: 330px;
+  overflow: hidden;
+}
+
+.nftCard-image {
+  width: 330px;
+  height: 295px;
+  object-fit: cover;
+}
+
+.nftCard-body {
+  padding: 20px 30px 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.nftCard-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nftCard-creator {
+  display: flex;
+  gap: 12px;
+  font-weight: 400;
+}
+
+.nftCard-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nftCard-price, .nftCard-bid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nftCard-bid {
+  align-items: flex-end;
+}
+
+.nftCard .h5 {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 160%
+}
+
+@media screen and (max-width: 740px) {
+  .nftCard {
+    width: 315px;
+  }
+  .nftCard-image {
+    width: 100%
+  }
+  .nftCard-body {
+    padding: 20px 20px 25px;
+  }
+  .nftCard-price-body{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 110%;
+  }
+}

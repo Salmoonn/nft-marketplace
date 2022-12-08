@@ -1,0 +1,42 @@
+[
+  {
+    "svg": "../img/categories/svg/1a06.svg",
+    "bg": "../img/categories/bg/1e7d.png",
+    "title": "Art"
+  },
+  {
+    "svg": "../img/categories/svg/15c9.svg",
+    "bg": "../img/categories/bg/a11c.png",
+    "title": "Collectibles"
+  },
+  {
+    "svg": "../img/categories/svg/efe1.svg",
+    "bg": "../img/categories/bg/4d21.png",
+    "title": "Music"
+  },
+  {
+    "svg": "../img/categories/svg/6dab.svg",
+    "bg": "../img/categories/bg/8ea.png",
+    "title": "Photography"
+  },
+  {
+    "svg": "../img/categories/svg/8dc5.svg",
+    "bg": "../img/categories/bg/d54d.png",
+    "title": "Video"
+  },
+  {
+    "svg": "../img/categories/svg/44e.svg",
+    "bg": "../img/categories/bg/ce7d.png",
+    "title": "Utility"
+  },
+  {
+    "svg": "../img/categories/svg/7f59.svg",
+    "bg": "../img/categories/bg/e413.png",
+    "title": "Sport"
+  },
+  {
+    "svg": "../img/categories/svg/2c8d.svg",
+    "bg": "../img/categories/bg/97d2.png",
+    "title": "Virtual Worlds"
+  }
+]

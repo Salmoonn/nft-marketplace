@@ -1,0 +1,68 @@
+.weekly {
+  padding: 80px 0;
+}
+
+.weekly-main {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  padding: 60px;
+  background: #3B3B3B;
+  border-radius: 20px;
+}
+
+.weekly-image-block {
+  width: 100%;
+  height: 310px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.weekly-image  {
+  width: 100%;
+}
+
+.weekly-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.weekly-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media screen and (max-width: 1100px) {
+  .weekly {
+    padding: 40px 0 80px;
+  }
+  .weekly-main {
+    padding: 40px 30px;
+    gap: 30px;
+  }
+  .weekly-image-block {
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .weekly {
+    padding: 40px 0;
+    flex-direction: column;
+  }
+  .weekly-main {
+    padding: 0;
+  }
+}
+
+@media  screen and (max-width: 740px) {
+  .weekly-main {
+    flex-direction: column;
+    background: none;
+  }
+}
