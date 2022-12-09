@@ -1,10 +1,11 @@
 import Timer from './Timer'
 import Button2 from './Button2'
 import '../style/Highlight.css'
+import bg from '../img/bg.png'
 
 export default function Highlight() {
   return (
-    <div className="highlight-bg" style={{ backgroundImage: 'url(./img/test.png)' }}>
+    <div className="highlight-bg" style={{ backgroundImage: `url(${bg})` }}>
       <div className='highlight-gradient'>
         <div className="highlight wrapper">
           <div className='highlight-body'>

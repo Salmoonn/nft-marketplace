@@ -116,11 +116,12 @@ function NFTInfo({ name, minted, creator, description, tags, avatar }) {
 }
 
 function AuctionTime() {
-  const [time, setTime] = useState(new Date(24 * 60 * 60 * 1000))
+  let time = new Date(new Date().setHours(0, 0, 0, 0) + 24 * 60 * 60 * 1000)
+  const [timer, setTimer] = useState(new Date(time - new Date()))
 
   useEffect(() => {
-    setTimeout(() => setTime(new Date(time - 1000)), 1000)
-  }, [time])
+    setTimeout(() => setTimer(new Date(time - new Date())), 1000)
+  }, [timer])
 
   return (
     <div className="timer">
@@ -129,17 +130,17 @@ function AuctionTime() {
       </div>
       <div className="timer-body">
         <div className="timer-time">
-          <div className="space-mono h3">{time.getUTCHours()}</div>
+          <div className="space-mono h3">{timer.getUTCHours()}</div>
           <div className="caption-space" style={{ color: '#fff' }}>Hours</div>
         </div>
         <div className="space-mono h4">:</div>
         <div className="timer-time">
-          <h3 className="space-mono h3">{time.getMinutes()}</h3>
+          <h3 className="space-mono h3">{timer.getMinutes()}</h3>
           <div className="caption-space" style={{ color: '#fff' }}>Minutes</div>
         </div>
         <div className="space-mono h4">:</div>
         <div className="timer-time">
-          <h3 className="space-mono h3">{time.getSeconds()}</h3>
+          <h3 className="space-mono h3">{timer.getSeconds()}</h3>
           <div className="caption-space" style={{ color: '#fff' }}>Seconds</div>
         </div>
       </div>

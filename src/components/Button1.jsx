@@ -1,11 +1,14 @@
 import "../style/Button1.css"
 
+import eye from '../img/eye.svg'
+import rocketLaunch from '../img/rocketLaunch.svg'
+
 function Button1(props) {
   const href = props?.href || '/'
   const text = props?.text || 'Button'
-  const svg = props?.svg
-    ? `./img/${props.svg}.svg`
-    : ''
+  const svg = props?.svg == 'eye'
+    ? eye
+    : rocketLaunch
 
   return (
     <a href={href} className={

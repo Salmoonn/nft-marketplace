@@ -1,11 +1,10 @@
 import "../style/Button2.css"
+import eye from '../img/eye.svg'
 
 function Button1({ props }) {
   const href = props?.href || '/'
   const text = props?.text || 'Button'
-  const svg = props?.svg
-    ? `./img/${props.svg}.svg`
-    : ''
+  const svg = eye
 
   return (
     <a href={href}>
