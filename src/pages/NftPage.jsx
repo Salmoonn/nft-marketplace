@@ -3,6 +3,8 @@ import '../style/NftPage.css'
 import config from '../config.json'
 import { useEffect, useState } from "react";
 import globe from '../img/globe.svg'
+import Button1 from '../components/Button1'
+import { NftCard } from "../components/NftCard";
 
 const server = config.server;
 
@@ -17,6 +19,8 @@ function NftPage() {
   const [description, setDescription] = useState();
   const [tags, setTags] = useState();
   const [avatar, setAvatar] = useState();
+  const [login, setLogin] = useState('');
+  const [moreNFT, setMoreNFT] = useState();
 
   useEffect(() => {
     fetch(server + '/unit/' + params.id)
@@ -26,10 +30,14 @@ function NftPage() {
         setMinted(new Date(r.minted));
         setTags(r.tags);
         setAvatar(server + '/avatar/' + r.creator + '.png');
+        setLogin(r.creator);
 
         fetch(server + '/' + r.creator)
           .then(r => r.json())
-          .then(r => setCreator(r.name))
+          .then(r => {
+            setCreator(r.name)
+            setMoreNFT(r.item)
+          })
 
         fetch(server + '/d/' + params.id + '.txt')
           .then(r => r.ok ? r.text() : '')
@@ -43,7 +51,8 @@ function NftPage() {
       <div className="nft-cover">
         <img src={banner} />
       </div>
-      <NFTInfo key={name} name={name} minted={minted} creator={creator} description={description} tags={tags} avatar={avatar} />
+      <NFTInfo key={name} name={name} minted={minted} creator={creator} description={description} tags={tags} avatar={avatar} login={login} />
+      <NFTPageMore login={login} moreNFT={moreNFT} id={params.id} />
     </div>
   )
 }
@@ -65,7 +74,7 @@ function monthToString(num) {
   }
 }
 
-function NFTInfo({ name, minted, creator, description, tags, avatar }) {
+function NFTInfo({ name, minted, creator, description, tags, avatar, login }) {
   return (
     <div className="nft-info wrapper">
       <div className="nft-info-body column">
@@ -76,10 +85,15 @@ function NFTInfo({ name, minted, creator, description, tags, avatar }) {
         <div className="nft-info-additional column">
           <div className="nft-info-created column">
             <div className="title">Created By</div>
-            <div className="nft-info-created-creater">
-              <img src={avatar} className="nft-avatar" />
-              <div className="work-sans">{creator}</div>
-            </div>
+            <Link to={'/' + login}>
+              <div className="nft-info-created-creater">
+                <img src={avatar} className="nft-avatar" />
+                <div className="work-sans">{creator}</div>
+              </div>
+            </Link>
+          </div>
+          <div className="only-mobile">
+            <AuctionTime />
           </div>
           <div className="nft-info-description column">
             <div className="title">Description</div>
@@ -108,7 +122,7 @@ function NFTInfo({ name, minted, creator, description, tags, avatar }) {
           </div>
         </div>
       </div>
-      <div className="nft-timer">
+      <div className="not-mobile">
         <AuctionTime />
       </div>
     </div>
@@ -147,6 +161,29 @@ function AuctionTime() {
       <button className="nft-timer-button work-sans">
         Place Bid
       </button>
+    </div>
+  )
+}
+
+function NFTPageMore({ login, moreNFT = [], id }) {
+  return (
+    <div className="nft-page-more wrapper column">
+      <div className="nft-page-more-headline">
+        <div className="title work-sans">More From This Artist</div>
+        <Button1 href={login} svg="arrowright" text='Go To Artist Page' visible="not-mobile" />
+      </div>
+      <div className="nft-page-more-body">
+        {moreNFT.filter((e) => id !== e)
+          .map((e, i) =>
+            <NftCard
+              key={i}
+              id={e}
+              bg="#3B3B3B"
+              visible={'' + (i >= 6 ? 'only-desktop' : '') + (i >= 2 && i < 6 ? 'not-mobile' : '')}
+            />
+          )}
+      </div>
+      <Button1 href={login} svg="arrowright" text='Go To Artist Page' visible="only-mobile" />
     </div>
   )
 }

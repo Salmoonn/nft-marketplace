@@ -13,6 +13,7 @@
   padding: 40px 0;
   display: flex;
   justify-content: space-between;
+  gap: 150px;
 }
 
 .nft-timer-button {
@@ -28,7 +29,6 @@
 
 .nft-info-body {
   gap: 30px;
-  width: 600px;
 }
 
 .nft-info-additional {
@@ -129,7 +129,96 @@
   align-items: center;
 }
 
+.nft-info-tags-title {
+  color: #858585;
+}
+
 pre {
   word-wrap: break-word;
   white-space: pre-wrap;
+}
+
+.nft-page-more {
+  padding: 80px 0;
+  gap: 60px;
+}
+
+.nft-page-more-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.nft-page-more-headline {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nft-page-more-headline .title {
+  font-weight: 600;
+  font-size: 38px;
+  line-height: 120%;
+}
+
+@media screen and (max-width: 1100px) {
+  .nft-cover {
+    height: 420px;
+  }
+  .nft-info .h2{
+    font-size: 38px;
+    line-height: 120%;
+  }
+  .nft-info .title{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+  }
+  .nft-minted {
+    font-size: 16px;
+    line-height: 140%;
+  }
+  .nft-info-body {
+    gap: 20px;
+  }
+  .nft-info-additional {
+    gap: 20px;
+  }
+  .nft-info {
+    gap: 30px;
+  }
+  .nft-info-description .text {
+    font-size: 16px;
+    line-height: 140%;
+  }
+  .nft-info-created-creater {
+    font-size: 16px;
+  }
+  .nft-detail {
+    font-size: 16px;
+    line-height: 140%;
+  }
+  .nft-details-icon {
+    width: 24px;
+  }
+  .nft-page-more .title {
+    font-size: 28px;
+    line-height: 140%;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .nft-cover {
+    height: 320px;
+  }
+  .nft-info .h2 {
+    font-size: 28px;
+    line-height: 140%;
+  }
+  .nft-info-tags-title {
+    font-weight: 400;
+    font-size: 16px;
+  }
+  .nft-page-more {
+    gap: 30px;
+  }
 }
