@@ -2,7 +2,7 @@ import React from "react";
 import Button1 from "./Button1";
 import "../style/TopCreator.css"
 import config from '../config.json'
-import avatar1 from '../img/avatar.png'
+import defaultAvatar from '../img/avatar.png'
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -10,6 +10,14 @@ import { Link } from "react-router-dom";
 const server = config.server;
 
 function TopCreators() {
+  const [topCreator, setTopCreator] = useState()
+
+  useEffect(() => {
+    fetch(server + '/topcreator')
+      .then(r => r.json())
+      .then(r => setTopCreator(r))
+  }, [])
+
   return (
     <div className="top-creator wrapper column">
       <div className="top-creator-header">
@@ -20,29 +28,27 @@ function TopCreators() {
         <Button1 href='/' svg='rocketLaunch' text='View Rankings' visible={'not-mobile'} />
       </div>
       <div className="top-creator-artist-cards">
-        {Array(12).fill(0).map((e, i) => <Card key={i} i={i} />)}
+        {topCreator?.map((e, i) => <Card key={i} number={i} login={e} />)}
       </div>
       <Button1 href='/' svg='rocketLaunch' text='View Rankings' visible={'only-mobile'} />
     </div>
   )
 }
 
-function Card(props) {
-  const number = props.i
+function Card({ number, login }) {
 
-  const [avatar, setAvatar] = useState(avatar1);
-  const [name, setName] = useState('Name');
-  const [login, setLogin] = useState('');
+  const [avatar, setAvatar] = useState(defaultAvatar);
+  const [name, setName] = useState('Cretor');
   const [sale, setSale] = useState(0);
 
+
   useEffect(() => {
-    fetch(server + '/topcreator/' + number)
+    fetch(server + '/' + login)
       .then(res => res.json())
       .then(res => {
         setName(res.name);
-        setLogin(res.login);
         setSale(res.totalSale);
-        setAvatar(server + '/avatar/' + res.login + '.png');
+        setAvatar(server + '/a/' + res.login + '.png');
       })
   }, [])
 

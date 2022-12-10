@@ -11,7 +11,7 @@ const server = config.server;
 function NftPage() {
   const params = useParams();
 
-  const banner = server + '/img/' + params.id + '.png'
+  const banner = server + '/i/' + params.id + '.png'
 
   const [name, setName] = useState('NFT Name');
   const [minted, setMinted] = useState(new Date());
@@ -29,7 +29,7 @@ function NftPage() {
         setName(r.name);
         setMinted(new Date(r.minted));
         setTags(r.tags);
-        setAvatar(server + '/avatar/' + r.creator + '.png');
+        setAvatar(server + '/a/' + r.creator + '.png');
         setLogin(r.creator);
 
         fetch(server + '/' + r.creator)

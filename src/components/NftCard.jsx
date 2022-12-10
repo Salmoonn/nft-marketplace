@@ -3,19 +3,20 @@ import { Link } from "react-router-dom";
 import "../style/NftCard.css";
 
 import Card from '../img/card.png'
-import Avatar from '../img/avatar.png'
+import defaultAvatar from '../img/avatar.png'
 
 import config from '../config.json'
 const server = config.server
 
 function NftCard({ id, visible = false, bg }) {
-  const card = server + '/img/' + id + '.png'
+  // const card = server + '/i/' + id + '.png'
 
+  const [card, setCard] = useState(defaultAvatar)
   const [creator, setCreator] = useState('Creator')
   const [name, setName] = useState('NFT name')
   const [price, setPrice] = useState('0')
   const [bid, setBid] = useState('0')
-  const [avatar, setAvatar] = useState(Avatar)
+  const [avatar, setAvatar] = useState(defaultAvatar)
 
   useEffect(() => {
     fetch(server + '/unit/' + id)
@@ -24,7 +25,7 @@ function NftCard({ id, visible = false, bg }) {
         setName(res.name)
         setPrice(res.price)
         setBid(res.highestBid)
-        setAvatar(server + '/avatar/' + res.creator + '.png')
+        setAvatar(server + '/a/' + res.creator + '.png')
 
         fetch(server + '/' + res.creator)
           .then(res => res.json())
@@ -33,6 +34,7 @@ function NftCard({ id, visible = false, bg }) {
           })
       })
       .catch((err) => console.log(err))
+    setCard(server + '/i/' + id + '.png')
   }, [])
 
   return (

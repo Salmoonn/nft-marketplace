@@ -3,6 +3,10 @@
   padding: 80px 0;
 }
 
+.trending img {
+  border-radius: 20px;
+}
+
 .trending-head {
   gap: 10px;
 }

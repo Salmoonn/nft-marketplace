@@ -32,7 +32,7 @@ function ArtistPage() {
       .then(r => r.json())
       .then(r => {
         setBanner(r.banner ? (server + r.banner) : '')
-        setAvatar(server + '/avatar/' + r.login + '.png')
+        setAvatar(server + '/a/' + r.login + '.png')
         setName(r.name)
         if (r.volume) setVolume(r.volume);
         if (r.sold) setSold(r.sold)
