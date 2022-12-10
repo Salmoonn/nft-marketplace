@@ -15,7 +15,7 @@ function TopCreators() {
   useEffect(() => {
     fetch(server + '/topcreator')
       .then(r => r.json())
-      .then(r => setTopCreator(r))
+      .then(r => setTopCreator(r.slice(0, 12)))
   }, [])
 
   return (
