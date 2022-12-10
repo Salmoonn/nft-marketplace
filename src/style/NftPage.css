@@ -204,6 +204,9 @@ pre {
     font-size: 28px;
     line-height: 140%;
   }
+  .nft-page-more {
+    padding: 40px 0;
+  }
 }
 
 @media screen and (max-width: 740px) {

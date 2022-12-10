@@ -17,15 +17,13 @@ function Navigation() {
         <a href="/" className="nav-li only-desktop">
           <div className="nav-li-button smart">
             <div className="work-sans">Marketplace</div>
-
           </div>
         </a>
-        <a href="/" className="nav-li only-desktop">
+        <Link to='/topcreators' className="nav-li only-desktop">
           <div className="nav-li-button smart">
             <div className="work-sans">Rankings</div>
-
           </div>
-        </a>
+        </Link>
         <a href="/" className="nav-li only-desktop">
           <div className="nav-li-button smart">
             <div className="work-sans">Connect a wallet</div>

@@ -25,12 +25,12 @@ function TopCreators() {
           <h3 className="work-sans">Top Creators</h3>
           <div className="body-work">Checkout Top Rated Creators on the NFT Marketplace</div>
         </div>
-        <Button1 href='/' svg='rocketLaunch' text='View Rankings' visible={'not-mobile'} />
+        <Button1 href='topcreators' svg='rocketLaunch' text='View Rankings' visible={'not-mobile'} />
       </div>
       <div className="top-creator-artist-cards">
         {topCreator?.map((e, i) => <Card key={i} number={i} login={e} />)}
       </div>
-      <Button1 href='/' svg='rocketLaunch' text='View Rankings' visible={'only-mobile'} />
+      <Button1 href="topcreators" svg='rocketLaunch' text='View Rankings' visible={'only-mobile'} />
     </div>
   )
 }

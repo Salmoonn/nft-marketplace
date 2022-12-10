@@ -1,0 +1,207 @@
+.top-creators-page {
+}
+
+.top-creators-page-header {
+  padding: 80px 0;
+  gap: 20px;
+}
+
+.top-creators-page-header .text {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 160%;
+}
+
+.top-creators-page-tab-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-creator-tab-bar-button {
+  background: none;
+  border: none;
+  height: 60px;
+  width: 100%;
+}
+
+.top-creator-tab-bar-button .text {
+  font-size: 22px;
+  line-height: 140%;
+  color: #858585;
+}
+
+.ranking-list {
+  padding: 40px 0;
+  gap: 20px;
+}
+
+.ranking-list-header-artist {
+  width: 430px;
+  display: flex;
+  gap: 20px;
+}
+
+.ranking-list-header {
+  height: 46px;
+  padding: 0 20px;
+  border: 1px solid #3B3B3B;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #858585;
+}
+
+.reanking-list-header-stats {
+  display: flex;
+  gap: 20px;
+  width: 520px;
+}
+
+.reanking-list-header-stats > * {
+  width: 100%;
+}
+
+.ranking-list-artist {
+  display: flex;
+  gap: 60px;
+  padding: 12px 20px;
+  background: #3b3b3b;
+  border-radius: 20px;
+}
+
+.ranking-list-artist-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 430px;
+}
+
+.ranking-list-artist-stats {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  width: 520px;
+}
+
+.ranking-list-artist-stats > * {
+  width: 100%;
+}
+
+.ranking-list-artist img {
+  width: 60px;
+  border-radius: 100%;
+}
+
+.ranking-list-artist-rank {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  width: 30px;
+  height: 30px;
+  background: #2b2b2b;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #858584;
+}
+
+.ranking-list-artist-name {
+  font-size: 22px;
+  line-height: 140%;
+}
+
+.ranking-list-artist-stats {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+}
+
+.ranking-list-artist-stats-change {
+  color: #00AC4F;
+}
+
+.top-creator-tab-bar-button:hover {
+  border-bottom: 2px solid #3B3B3B;
+}
+
+.top-creator-tab-bar-button:hover .text {
+  color: white;
+}
+
+
+
+@media screen and (max-width: 1100px) {
+  .top-creators-page-header {
+    padding: 40px 0;
+  }
+  .top-creators-page-header .h2 {
+    font-size: 38px;
+    line-height: 120%;
+  }
+  .top-creators-page-header .text {
+    font-size: 16px;
+    line-height: 140%;
+  }
+  .top-creator-tab-bar-button .text {
+    font-size: 16px;
+  }
+  .ranking-list {
+    padding: 30px 0;
+  }
+  .ranking-list-artist-header {
+    gap: 15px;
+  }
+  .ranking-list-artist-header, .ranking-list-header-artist {
+    width: 410px;
+  }
+  .ranking-list-artist-stats, .reanking-list-header-stats {
+    width: 220px;
+  }
+  .ranking-list-artist-rank {
+    background: none;
+  }
+  .ranking-list-artist img {
+    width: 24px;
+    border-radius: 100%;
+  }
+  .ranking-list-artist-name {
+    font-size: 22px;
+    line-height: 140%;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .top-creators-page-header {
+    padding: 30px 0;
+  }
+  .top-creators-page-header .h2 {
+    font-size: 28px;
+    line-height: 140%;
+  }
+  .top-creators-page-header {
+    gap: 10px;
+  }
+  .ranking-list {
+    padding: 20px 0;
+  }
+  .ranking-list-artist-name {
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .ranking-list-artist-header {
+    gap: 10px;
+  }
+  .ranking-list-artist {
+    justify-content: space-between;
+    gap: 0;
+  }
+  .ranking-list-header {
+    justify-content: space-between;
+    gap: 0;
+  }
+}

@@ -1,5 +1,6 @@
 import "../style/trending.css"
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 import defaultAvatar from '../img/avatar.png'
 
 // const path = require('../config.json')['server'] + '/img/'
@@ -23,7 +24,11 @@ function Trending() {
         <div className="body-work">Checkout our weekly updated trending collection.</div>
       </div>
       <div className="trending-cards">
-        {coll?.map(e => <CollectionCard key={e} id={e} />)}
+        {coll?.map((e, i) =>
+          <CollectionCard key={i} id={e}
+            visible={i == 0 ? '' : i == 1 ? 'not-mobile' : 'only-desktop'}
+          />
+        )}
       </div>
     </div>
   )
@@ -31,6 +36,7 @@ function Trending() {
 
 function CollectionCard({ visible = '', id }) {
   const [name, setName] = useState('Name');
+  const [login, setLogin] = useState('');
   const [creator, setCreator] = useState('Creator');
   const [creatorAvatar, setCreatorAvatar] = useState(defaultAvatar)
   const [unit, setUnit] = useState([defaultAvatar, defaultAvatar, defaultAvatar]);
@@ -44,6 +50,7 @@ function CollectionCard({ visible = '', id }) {
         setUnit(r.body.filter((e, i) => i < 3).map(e => server + '/i/' + e + '.png'))
         setTotal(r.body.length);
         setCreatorAvatar(server + '/a/' + r.creator + '.png')
+        setLogin(r.creator)
 
         fetch(server + '/' + r.creator)
           .then(r => r.json())
@@ -75,12 +82,12 @@ function CollectionCard({ visible = '', id }) {
       </div>
       <div className="collection-info column">
         <div className="work-sans h5">{name}</div>
-        <a href="#">
+        <Link to={login}>
           <div className="trending-artist-card">
             <img width={24} src={creatorAvatar}></img>
             <div className="base-body-work trending-artist-name">{creator}</div>
           </div>
-        </a>
+        </Link>
       </div>
     </div>
   )

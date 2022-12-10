@@ -8,7 +8,7 @@ import rocketLaunch from '../img/rocketLaunch.svg'
 import arrowright from '../img/ArrowRight.svg'
 
 function Button1({
-  href = '/',
+  href = '',
   svg = '',
   text = 'Button',
   visible = ''
@@ -21,7 +21,7 @@ function Button1({
   }
 
   return (
-    <Link to={'/' + href} className={visible}>
+    <Link to={href} className={visible}>
       <div className="button1 smart">
         <img src={svg}></img>
         <div className="work-sans">{text}</div>
