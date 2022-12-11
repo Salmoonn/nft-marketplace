@@ -25,7 +25,7 @@ function ArtistPage() {
   const [sold, setSold] = useState(0);
   const [followers, setFollowers] = useState(0);
   const [bio, setBio] = useState();
-  const [cards, setCards] = useState();
+  const [cards, setCards] = useState([]);
 
   useEffect(() => {
     fetch(server + '/' + params.user)
@@ -52,7 +52,7 @@ function ArtistPage() {
       </div>
 
       <ArtistInfo name={name} volume={volume} sold={sold} followers={followers} bio={bio} />
-      <TabBar />
+      <TabBar cards={cards.length} />
       <ArtistCard cards={cards?.slice(0, 9)} />
     </div>
   )
@@ -123,13 +123,13 @@ function ArtistInfo({ name, volume, sold, followers, bio }) {
   )
 }
 
-function TabBar() {
+function TabBar({ cards }) {
   return (
     <div className="tab-bar">
       <div className="tab-bar-body wrapper">
         <button className="tab-bar-button">
           <div className="tab-bar-text work-sans">Created</div>
-          <div className="tab-bar-num space-mono not-mobile">302</div>
+          <div className="tab-bar-num space-mono not-mobile">{cards}</div>
         </button>
         <button className="tab-bar-button">
           <div className="tab-bar-text work-sans">Owned</div>

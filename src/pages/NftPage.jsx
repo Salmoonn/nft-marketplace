@@ -20,7 +20,6 @@ function NftPage() {
   const [tags, setTags] = useState();
   const [avatar, setAvatar] = useState();
   const [login, setLogin] = useState('');
-  const [moreNFT, setMoreNFT] = useState();
 
   useEffect(() => {
     fetch(server + '/unit/' + params.id)
@@ -36,7 +35,6 @@ function NftPage() {
           .then(r => r.json())
           .then(r => {
             setCreator(r.name)
-            setMoreNFT(r.item)
           })
 
         fetch(server + '/d/' + params.id + '.txt')
@@ -44,7 +42,7 @@ function NftPage() {
           .then(r => setDescription(r))
           .catch((err) => console.log(err))
       })
-  }, [])
+  }, [params])
 
   return (
     <div className="nft-page">
@@ -52,7 +50,7 @@ function NftPage() {
         <img src={banner} />
       </div>
       <NFTInfo key={name} name={name} minted={minted} creator={creator} description={description} tags={tags} avatar={avatar} login={login} />
-      <NFTPageMore login={login} moreNFT={moreNFT} id={params.id} />
+      <NFTPageMore login={login} id={params.id} />
     </div>
   )
 }
@@ -165,7 +163,18 @@ function AuctionTime() {
   )
 }
 
-function NFTPageMore({ login, moreNFT = [], id }) {
+function NFTPageMore({ login, id }) {
+
+  const [moreNFT, setMoreNFT] = useState([]);
+
+  useEffect(() => {
+    fetch(server + '/' + login)
+      .then(r => r.json())
+      .then(r => {
+        setMoreNFT(r.item)
+      })
+  }, [login])
+
   return (
     <div className="nft-page-more wrapper column">
       <div className="nft-page-more-headline">
@@ -176,7 +185,7 @@ function NFTPageMore({ login, moreNFT = [], id }) {
         {moreNFT.filter((e) => id !== e)
           .map((e, i) =>
             <NftCard
-              key={i}
+              key={e}
               id={e}
               bg="#3B3B3B"
               visible={'' + (i >= 6 ? 'only-desktop' : '') + (i >= 2 && i < 6 ? 'not-mobile' : '')}

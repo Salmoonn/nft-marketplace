@@ -14,22 +14,21 @@ function Navigation() {
         </div>
       </Link>
       <div className="nav-menu">
-        <a href="/" className="nav-li only-desktop">
+        <Link to="/" className="nav-li only-desktop">
           <div className="nav-li-button smart">
             <div className="work-sans">Marketplace</div>
           </div>
-        </a>
+        </Link>
         <Link to='/topcreators' className="nav-li only-desktop">
           <div className="nav-li-button smart">
             <div className="work-sans">Rankings</div>
           </div>
         </Link>
-        <a href="/" className="nav-li only-desktop">
+        <Link to="/" className="nav-li only-desktop">
           <div className="nav-li-button smart">
             <div className="work-sans">Connect a wallet</div>
-
           </div>
-        </a>
+        </Link>
         <Link to="/signup" className="only-desktop">
           <div className="nav-sign_up smart">
             <div className="nav-sign_up-inner">
@@ -38,9 +37,9 @@ function Navigation() {
             </div>
           </div>
         </Link>
-        <a href='/' className="not-desktop">
+        <Link to='/' className="not-desktop">
           <img src={burgerMenu} />
-        </a>
+        </Link>
       </div>
     </div>
   )

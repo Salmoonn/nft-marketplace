@@ -21,7 +21,7 @@ function Button1({
   }
 
   return (
-    <Link to={href} className={visible}>
+    <Link to={'/' + href} className={visible}>
       <div className="button1 smart">
         <img src={svg}></img>
         <div className="work-sans">{text}</div>

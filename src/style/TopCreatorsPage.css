@@ -25,9 +25,11 @@
 }
 
 .top-creator-tab-bar-button .text {
+  font-weight: 600;
   font-size: 22px;
   line-height: 140%;
   color: #858585;
+  cursor: pointer;
 }
 
 .ranking-list {

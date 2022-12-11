@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import SubForm from './SubForm'
 import SubForm2 from './SubForm2'
 
@@ -29,10 +31,10 @@ export default function Footer() {
                   Join our community
                 </div>
                 <div className='footer-icons'>
-                  <a href='/'><img src={discord} /></a>
-                  <a href='/'><img src={youtube} /></a>
-                  <a href='/'><img src={twitter} /></a>
-                  <a href='/'><img src={instagram} /></a>
+                  <Link to='/'><img src={discord} /></Link>
+                  <Link to='/'><img src={youtube} /></Link>
+                  <Link to='/'><img src={twitter} /></Link>
+                  <Link to='/'><img src={instagram} /></Link>
                 </div>
               </div>
             </div>
@@ -40,9 +42,9 @@ export default function Footer() {
           <div className='footer-explore'>
             <div className='space-mono h5'>Explore</div>
             <div className='footer-explore-body'>
-              <a href='/'><div className='base-body-work'>Marketplace</div></a>
-              <a href='/'><div className='base-body-work'>Ranking</div></a>
-              <a href='/'><div className='base-body-work'>Connect a wallet</div></a>
+              <Link to='/'><div className='base-body-work'>Marketplace</div></Link>
+              <Link to='/topcreators'><div className='base-body-work'>Ranking</div></Link>
+              <Link to='/'><div className='base-body-work'>Connect a wallet</div></Link>
             </div>
           </div>
           <div className='footer-sub'>
