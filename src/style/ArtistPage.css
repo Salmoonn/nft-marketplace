@@ -74,8 +74,6 @@
   gap: 10px;
 }
 
-
-
 .artist-info-button {
   display: flex;
   gap: 20px;
@@ -134,6 +132,18 @@
   color: white;
 }
 
+.tab-bar-body .active {
+  border-bottom: 2px solid #858584;
+}
+
+.tab-bar-body .active .tab-bar-text {
+  color: white;
+}
+
+.tab-bar-body .active .tab-bar-num {
+  background: #858584;
+}
+
 .tab-bar-text {
   font-weight: 600;
   font-size: 22px;
@@ -165,6 +175,7 @@
 .footer-bg {
   border-top: 2px solid #2B2B2B;
 }
+
 
 @media screen and (max-width: 1100px) {
   .user-cover {

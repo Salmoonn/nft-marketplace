@@ -34,7 +34,7 @@ function Trending() {
   )
 }
 
-function CollectionCard({ visible = '', id }) {
+function CollectionCard({ visible = '', id, bg = '' }) {
   const [name, setName] = useState('Name');
   const [login, setLogin] = useState('');
   const [creator, setCreator] = useState('Creator');
@@ -62,22 +62,23 @@ function CollectionCard({ visible = '', id }) {
   }, [])
 
   return (
-    <div className={'trending-card column ' + visible}>
+    <div className={'trending-card column ' + visible}
+      style={{ background: bg }}>
       <div className="trending-card-photos">
-        <a href="#"><img className="smart trending-card-photo-main" src={unit[0]}></img></a>
+        <Link to="#"><img className="smart trending-card-photo-main" src={unit[0]}></img></Link>
 
         <div className="trending-card-frame">
-          <a href="#">
+          <Link to="#">
             <img className="smart" src={unit[1]} />
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <img className="smart" src={unit[2]} />
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <div className="trending-card-frame-number smart">
               <div className="space-mono h5">{total - 3}+</div>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
       <div className="collection-info column">
@@ -94,3 +95,4 @@ function CollectionCard({ visible = '', id }) {
 }
 
 export default Trending;
+export { CollectionCard };

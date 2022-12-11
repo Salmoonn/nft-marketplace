@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
-import { NftCard } from "../components/NftCard"
+import { useParams } from "react-router-dom";
+import { NftCard } from "../components/NftCard";
+import { CollectionCard } from "../components/Trending";
 
 import gb from "../img/globe.svg"
 import ds from "../img/discord.svg"
@@ -26,6 +27,8 @@ function ArtistPage() {
   const [followers, setFollowers] = useState(0);
   const [bio, setBio] = useState();
   const [cards, setCards] = useState([]);
+  const [collection, setCollection] = useState([]);
+  const [tabBar, setTabBar] = useState('created');
 
   useEffect(() => {
     fetch(server + '/' + params.user)
@@ -34,11 +37,12 @@ function ArtistPage() {
         setBanner(r.banner ? (server + r.banner) : '')
         setAvatar(server + '/a/' + r.login + '.png')
         setName(r.name)
+        setBio(r.bio)
+        setCards(r.item)
+        setCollection(r.collection);
         if (r.volume) setVolume(r.volume);
         if (r.sold) setSold(r.sold)
         if (r.followers) setFollowers(r.followers)
-        setBio(r.bio)
-        setCards(r.item)
       })
       .catch((err) => console.log(err))
   }, [])
@@ -52,8 +56,14 @@ function ArtistPage() {
       </div>
 
       <ArtistInfo name={name} volume={volume} sold={sold} followers={followers} bio={bio} />
-      <TabBar cards={cards.length} />
-      <ArtistCard cards={cards?.slice(0, 9)} />
+      <TabBar created={cards.length} collection={collection.length} tabBar={tabBar} setTabBar={setTabBar} />
+      {
+        {
+          'created': <ArtistCard cards={cards?.slice(0, 9)} />,
+          'owned': <ArtistCard cards={cards?.slice(0, 9)} />,
+          'collection': <ArtistCollection collection={collection} />
+        }[tabBar]
+      }
     </div>
   )
 }
@@ -123,21 +133,24 @@ function ArtistInfo({ name, volume, sold, followers, bio }) {
   )
 }
 
-function TabBar({ cards }) {
+function TabBar({ created, collection, tabBar, setTabBar }) {
   return (
     <div className="tab-bar">
       <div className="tab-bar-body wrapper">
-        <button className="tab-bar-button">
+        <button className={"tab-bar-button" + (tabBar === 'created' ? ' active' : '')}
+          onClick={() => setTabBar('created')}>
           <div className="tab-bar-text work-sans">Created</div>
-          <div className="tab-bar-num space-mono not-mobile">{cards}</div>
+          <div className="tab-bar-num space-mono not-mobile">{created}</div>
         </button>
-        <button className="tab-bar-button">
+        <button className={"tab-bar-button" + (tabBar === 'owned' ? ' active' : '')}
+          onClick={() => setTabBar('owned')}>
           <div className="tab-bar-text work-sans">Owned</div>
-          <div className="tab-bar-num space-mono not-mobile">67</div>
+          <div className="tab-bar-num space-mono not-mobile">{created}</div>
         </button>
-        <button className="tab-bar-button">
+        <button className={"tab-bar-button" + (tabBar === 'collection' ? ' active' : '')}
+          onClick={() => setTabBar('collection')}>
           <div className="tab-bar-text work-sans">Collection</div>
-          <div className="tab-bar-num space-mono not-mobile">4</div>
+          <div className="tab-bar-num space-mono not-mobile">{collection}</div>
         </button>
       </div>
     </div>
@@ -150,6 +163,17 @@ function ArtistCard({ cards }) {
       <div className="artist-card wrapper">
         {cards?.map((e, i) => <NftCard key={i} id={e} bg="#2b2b2b"
           visible={'' + (i >= 6 ? 'only-desktop' : '') + (i >= 3 && i < 6 ? 'not-mobile' : '')} />)}
+      </div>
+    </div>
+  )
+}
+
+function ArtistCollection({ collection }) {
+  return (
+    <div className="artist-card-bg">
+      <div className="artist-card wrapper">
+        {collection.map(e => <CollectionCard id={e} /*bg={'#2B2B2B'}*/ />)}
+        {/* <CollectionCard id={collection} /> */}
       </div>
     </div>
   )
