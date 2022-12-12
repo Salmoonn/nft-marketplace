@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { NftCard } from "../components/NftCard";
 import { CollectionCard } from "../components/Trending";
+import { TabBar } from "../components/TabBar";
 
 import gb from "../img/globe.svg"
 import ds from "../img/discord.svg"
@@ -28,7 +29,7 @@ function ArtistPage() {
   const [bio, setBio] = useState();
   const [cards, setCards] = useState([]);
   const [collection, setCollection] = useState([]);
-  const [tabBar, setTabBar] = useState('created');
+  const [tabBar, setTabBar] = useState('Created');
 
   useEffect(() => {
     fetch(server + '/' + params.user)
@@ -47,6 +48,8 @@ function ArtistPage() {
       .catch((err) => console.log(err))
   }, [])
 
+  console.log(tabBar)
+
   return (
     <div className="artist-page">
 
@@ -56,12 +59,20 @@ function ArtistPage() {
       </div>
 
       <ArtistInfo name={name} volume={volume} sold={sold} followers={followers} bio={bio} />
-      <TabBar created={cards.length} collection={collection.length} tabBar={tabBar} setTabBar={setTabBar} />
+      <TabBar
+        tab={[
+          { 'title': 'Created', 'value': cards.length },
+          { 'title': 'Owned', 'value': cards.length },
+          { 'title': 'Collection', 'value': collection.length },
+        ]}
+        active={tabBar}
+        cb={setTabBar}
+      />
       {
         {
-          'created': <ArtistCard cards={cards?.slice(0, 9)} />,
-          'owned': <ArtistCard cards={cards?.slice(0, 9)} />,
-          'collection': <ArtistCollection collection={collection} />
+          'Created': <ArtistCard cards={cards?.slice(0, 9)} />,
+          'Owned': <ArtistCard cards={cards?.slice(0, 9)} />,
+          'Collection': <ArtistCollection collection={collection} />
         }[tabBar]
       }
     </div>
@@ -108,11 +119,11 @@ function ArtistInfo({ name, volume, sold, followers, bio }) {
         <div className="artist-links column">
           <div className="h5 space-mono">Links</div>
           <div className="artist-links-icons row">
-            <a href='/'><img src={gb} /></a>
-            <a href='/'><img src={ds} /></a>
-            <a href='/'><img src={yt} /></a>
-            <a href='/'><img src={tw} /></a>
-            <a href='/'><img src={inst} /></a>
+            <Link to='/'><img src={gb} /></Link>
+            <Link to='/'><img src={ds} /></Link>
+            <Link to='/'><img src={yt} /></Link>
+            <Link to='/'><img src={tw} /></Link>
+            <Link to='/'><img src={inst} /></Link>
           </div>
         </div>
 
@@ -128,30 +139,6 @@ function ArtistInfo({ name, volume, sold, followers, bio }) {
             <div className="work-sans">Follow</div>
           </button>
         </div>
-      </div>
-    </div>
-  )
-}
-
-function TabBar({ created, collection, tabBar, setTabBar }) {
-  return (
-    <div className="tab-bar">
-      <div className="tab-bar-body wrapper">
-        <button className={"tab-bar-button" + (tabBar === 'created' ? ' active' : '')}
-          onClick={() => setTabBar('created')}>
-          <div className="tab-bar-text work-sans">Created</div>
-          <div className="tab-bar-num space-mono not-mobile">{created}</div>
-        </button>
-        <button className={"tab-bar-button" + (tabBar === 'owned' ? ' active' : '')}
-          onClick={() => setTabBar('owned')}>
-          <div className="tab-bar-text work-sans">Owned</div>
-          <div className="tab-bar-num space-mono not-mobile">{created}</div>
-        </button>
-        <button className={"tab-bar-button" + (tabBar === 'collection' ? ' active' : '')}
-          onClick={() => setTabBar('collection')}>
-          <div className="tab-bar-text work-sans">Collection</div>
-          <div className="tab-bar-num space-mono not-mobile">{collection}</div>
-        </button>
       </div>
     </div>
   )

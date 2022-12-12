@@ -103,64 +103,6 @@
   border: 2px solid #A259FF;
 }
 
-.tab-bar{
-  padding-top: 10px;
-  border-top: 2px solid #3b3b3b;
-}
-
-.tab-bar-body {
-  height: 60px;
-  display: flex;
-}
-
-.tab-bar-button {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.tab-bar-button:hover {
-  border-bottom: 2px solid #3B3B3B;
-}
-
-.tab-bar-button:hover .tab-bar-text {
-  color: white;
-}
-
-.tab-bar-body .active {
-  border-bottom: 2px solid #858584;
-}
-
-.tab-bar-body .active .tab-bar-text {
-  color: white;
-}
-
-.tab-bar-body .active .tab-bar-num {
-  background: #858584;
-}
-
-.tab-bar-text {
-  font-weight: 600;
-  font-size: 22px;
-  line-height: 140%;
-  color: #858584;
-}
-
-.tab-bar-num {
-  color: white;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 140%;
-  background: #3B3B3B;
-  padding: 5px 10px;
-  border-radius: 20px;
-}
-
 .artist-card-bg {
   background: #3b3b3b;
 }
@@ -201,16 +143,6 @@
     font-size: 16px;
     line-height: 140%;
   }
-
-  .tab-bar-text {
-    font-size: 16px;
-  }
-
-  .tab-bar-num {
-    font-size: 12px;
-    line-height: 110%;
-  }
-
 }
 
 @media screen and (max-width: 740px) {

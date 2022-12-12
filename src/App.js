@@ -10,6 +10,7 @@ import { SignUp } from "./pages/SignUp";
 import { ArtistPage } from "./pages/ArtistPage";
 import { NftPage } from "./pages/NftPage";
 import { TopCreatorsPage } from './pages/TopCreatorsPage';
+import { Marketplace } from './pages/Marketplace';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path=':user' element={<ArtistPage />} />
         <Route path='unit/:id' element={<NftPage />} />
         <Route path='topcreators' element={<TopCreatorsPage />} />
+        <Route path='marketplace' element={<Marketplace />} />
       </Route>
     </Routes>
   );

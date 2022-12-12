@@ -14,7 +14,7 @@ function Navigation() {
         </div>
       </Link>
       <div className="nav-menu">
-        <Link to="/" className="nav-li only-desktop">
+        <Link to="/marketplace" className="nav-li only-desktop">
           <div className="nav-li-button smart">
             <div className="work-sans">Marketplace</div>
           </div>

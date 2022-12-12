@@ -42,7 +42,7 @@ export default function Footer() {
           <div className='footer-explore'>
             <div className='space-mono h5'>Explore</div>
             <div className='footer-explore-body'>
-              <Link to='/'><div className='base-body-work'>Marketplace</div></Link>
+              <Link to='/marketplace'><div className='base-body-work'>Marketplace</div></Link>
               <Link to='/topcreators'><div className='base-body-work'>Ranking</div></Link>
               <Link to='/'><div className='base-body-work'>Connect a wallet</div></Link>
             </div>
