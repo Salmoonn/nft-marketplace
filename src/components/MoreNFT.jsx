@@ -18,8 +18,6 @@ function MoreNFT() {
       .then(r => setCards(r.slice(0, 3)))
   }, [])
 
-  console.log(cards)
-
   return (
     <div className="moreNFT wrapper">
       <div className="moreNFT-header">

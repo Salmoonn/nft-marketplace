@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Collection, CollectionSceleton } from "./Collection";
 
-import "../style/trending.css"
+import "../style/Trending.css"
 
 import config from '../config.json';
 const server = config.server;
@@ -29,7 +29,12 @@ function Trending() {
               id={e}
               visible={i == 0 ? '' : i == 1 ? 'not-mobile' : 'only-desktop'}
             />)
-          : Array(3).fill().map((e, i) => <CollectionSceleton color1="#333" color2="#393939" />
+          : Array(3).fill().map((e, i) =>
+            <CollectionSceleton
+              color1="#333"
+              color2="#393939"
+              visible={i == 0 ? '' : i == 1 ? 'not-mobile' : 'only-desktop'}
+            />
           )
         }
       </div>
