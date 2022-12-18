@@ -3,57 +3,12 @@
   padding: 80px 0;
 }
 
-.trending-card img {
-  border-radius: 20px;
-}
-
 .trending-head {
   gap: 10px;
 }
 
-.trending-card {
-  width: 330px;
-  gap: 15px;
-  /* border-radius: 20px; */
-}
-
-.trending-card-photo-main {
-  width: 100%;
-}
-
-.trending-card-photos{
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.trending-card-frame{
-  display: flex;
-  gap: 15px;
-  height: 100px;
-}
-
 .trending-card-frame img {
   height: 100%
-}
-
-.trending-card-frame-number{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 100%;
-  background-color: #A259FF;
-  border-radius: 20px;
-}
-
-.trending-artist-card{
-  display: flex;
-  gap: 10px
-}
-
-.trending-artist-name {
-  font-size: 16px;
 }
 
 .trending-cards {
@@ -73,11 +28,5 @@
   .trending-card {
     width: 315px;
   }
-  .trending-card-frame {
-    height: 95px;
-  }
-  .trending-card-frame-number .h5 {
-    font-size: 16px;
-    line-height: 140%;
-  }
+
 }

@@ -1,0 +1,103 @@
+.collection {
+  width: 330px;
+  gap: 15px;
+  overflow: hidden;
+}
+
+.collection img {
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.collection-photos{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.collection-frame{
+  display: flex;
+  gap: 15px;
+  height: 100px;
+}
+
+.collection-frame-number{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100%;
+  background-color: #A259FF;
+  border-radius: 20px;
+}
+
+.collection-artist-card{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.collection-artist-name {
+  font-size: 16px;
+}
+
+.sceleton .collection-photo-main {
+  width: 330px;
+  height: 330px;
+  border-radius: 20px;
+  animation: anim 1s ease infinite;
+}
+
+.sceleton .collection-photo-other {
+  height: 100%;
+  width: 100vh;
+  border-radius: 20px;
+  animation: anim 1s ease infinite;
+}
+
+.sceleton .collection-name {
+  width: 100px;
+  height: 22px;
+  margin: 7px 0;
+  border-radius: 20px;
+  animation: anim 1s ease infinite;
+}
+
+.sceleton .collection-artist-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 20px;
+  animation: anim 1s ease infinite;
+}
+
+.sceleton .collection-artist-name {
+  width: 64px;
+  height: 16px;
+  border-radius: 20px;
+  animation: anim 1s ease infinite;
+}
+
+@keyframes anim {
+  0% {
+    background: var(--i);
+  }
+  50% {
+    background: var(--j);
+  }
+  100% {
+
+    background: var(--i);
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .collection-card-frame {
+    height: 95px;
+  }
+  .collection-frame-number .h5 {
+    font-size: 16px;
+    line-height: 140%;
+  }
+}

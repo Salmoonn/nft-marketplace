@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { NftCard } from "../components/NftCard";
-import { CollectionCard } from "../components/Trending";
+import { Collection } from "../components/Collection";
 import { TabBar } from "../components/TabBar";
 
 import gb from "../img/globe.svg"
@@ -157,7 +157,7 @@ function ArtistCollection({ collection }) {
   return (
     <div className="artist-card-bg">
       <div className="artist-card wrapper">
-        {collection.map(e => <CollectionCard id={e} /*bg={'#2B2B2B'}*/ />)}
+        {collection.map(e => <Collection id={e} /*bg={'#2B2B2B'}*/ />)}
         {/* <CollectionCard id={collection} /> */}
       </div>
     </div>

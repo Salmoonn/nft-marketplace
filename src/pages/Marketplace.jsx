@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { NftCard, NftCardSceleton } from "../components/NftCard"
-import { CollectionCard } from "../components/Trending"
+import { Collection, CollectionSceleton } from "../components/Collection";
 
 import "../style/Marketplace.css"
 
@@ -75,7 +75,9 @@ const Marketplace = () => {
                       color1="#333"
                       color2="#393939"
                     />),
-                'Collections': filterCollections.map(e => <CollectionCard key={e.name} id={e.id} />)
+                'Collections': filterCollections.length === 0
+                  ? Array(3).fill().map((e, i) => <CollectionSceleton key={i} color1="#333" color2="#393939" />)
+                  : filterCollections.map(e => <Collection key={e.name} id={e.id} />)
               }[tabBar]
             }
           </div>
