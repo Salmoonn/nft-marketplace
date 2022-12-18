@@ -2,14 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../style/NftCard.css";
 
-import Card from '../img/card.png'
 import defaultAvatar from '../img/avatar.png'
 
 import config from '../config.json'
 const server = config.server
 
 function NftCard({ id, visible = false, bg }) {
-  // const card = server + '/i/' + id + '.png'
 
   const [card, setCard] = useState(defaultAvatar)
   const [creator, setCreator] = useState('Creator')
@@ -33,7 +31,7 @@ function NftCard({ id, visible = false, bg }) {
             setCreator(res.name)
           })
       })
-      .catch((err) => console.log(err))
+    // .catch((err) => console.log(err))
     setCard(server + '/i/' + id + '.png')
   }, [])
 
@@ -65,4 +63,39 @@ function NftCard({ id, visible = false, bg }) {
   )
 }
 
-export { NftCard }
+function NftCardSceleton({ visible, bg, color1, color2 }) {
+
+  const anim = {
+    "--i": color1,
+    "--j": color2
+  }
+
+  return (
+    <Link className={visible ? visible : ''}>
+      <div className="nftCard sceleton" style={{ background: bg }}>
+        <div className="nftCard-image anim" style={anim} />
+        <div className="nftCard-body">
+          <div className="nftCard-info" >
+            <div className="work-sans h5 anim" style={anim} />
+            <div className="nftCard-creator">
+              <div className="nftCard-creator-avatar anim" style={anim} />
+              <p className="space-mono anim" style={anim} />
+            </div>
+          </div>
+          <div className="nftCard-footer">
+            <div className="nftCard-price">
+              <div className="caption-space price anim" style={anim} />
+              <div className="base-body-space nftCard-price-body anim" style={anim} />
+            </div>
+            <div className="nftCard-bid">
+              <div className="caption-space highest anim" style={anim}></div>
+              <div className="base-body-space nftCard-price-body anim" style={anim} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </Link>
+  )
+}
+
+export { NftCard, NftCardSceleton }

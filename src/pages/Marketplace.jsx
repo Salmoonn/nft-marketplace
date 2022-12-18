@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { NftCard } from "../components/NftCard"
+import { NftCard, NftCardSceleton } from "../components/NftCard"
 import { CollectionCard } from "../components/Trending"
 
 import "../style/Marketplace.css"
@@ -9,6 +9,7 @@ import config from "../config.json"
 import { TabBar } from "../components/TabBar"
 const server = config.server
 
+
 const Marketplace = () => {
 
   const [cards, setCards] = useState([]);
@@ -17,7 +18,6 @@ const Marketplace = () => {
   const [tabBar, setTabBar] = useState('NFTs');
   const [filterCards, setFilterCards] = useState([]);
   const [filterCollections, setFilterCollections] = useState([]);
-
 
   const inputOnChange = (e) => {
     const search = e.target.value.toLowerCase()
@@ -66,7 +66,15 @@ const Marketplace = () => {
           <div className="marketplace-main-body wrapper">
             {
               {
-                'NFTs': filterCards.map(e => <NftCard key={e.id} id={e.id} bg="#2b2b2b" />),
+                'NFTs': filterCards.length !== 0
+                  ? filterCards.map(e => <NftCard key={e.id} id={e.id} bg="#2b2b2b" />)
+                  : Array(3).fill().map((e, i) =>
+                    <NftCardSceleton
+                      key={i}
+                      bg="#2b2b2b"
+                      color1="#333"
+                      color2="#393939"
+                    />),
                 'Collections': filterCollections.map(e => <CollectionCard key={e.name} id={e.id} />)
               }[tabBar]
             }

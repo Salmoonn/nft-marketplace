@@ -1,9 +1,25 @@
+import { NftCard, NftCardSceleton } from "./NftCard";
+import { useEffect, useState } from "react";
+
 import Button1 from "./Button1";
-import { NftCard } from "./NftCard";
 
 import "../style/MoreNFT.css"
 
+import config from '../config.json'
+const server = config.server
+
 function MoreNFT() {
+
+  const [cards, setCards] = useState('');
+
+  useEffect(() => {
+    fetch(server + '/unit/all')
+      .then(r => r.json())
+      .then(r => setCards(r.slice(0, 3)))
+  }, [])
+
+  console.log(cards)
+
   return (
     <div className="moreNFT wrapper">
       <div className="moreNFT-header">
@@ -14,9 +30,24 @@ function MoreNFT() {
         <Button1 href='marketplace' svg='eye' text='See All' visible='not-mobile' />
       </div>
       <div className="moreNFT-body">
-        <NftCard id='fda1' bg='#3b3b3b' />
-        <NftCard id='5b73' bg='#3b3b3b' />
-        <NftCard id='45a' visible='not-laptop' bg='#3b3b3b' />
+        {cards.length === 0
+          ? Array(3).fill().map((e, i) =>
+            <NftCardSceleton
+              key={i}
+              bg="#3b3b3b"
+              color1="#444"
+              color2="#494949"
+            />
+          )
+          : cards.map((e, i) =>
+            <NftCard
+              key={i}
+              id={e.id}
+              bg='#3b3b3b'
+              visible={i == 2 && 'not-laptop'}
+            />
+          )
+        }
       </div>
       <Button1 href='marketplace' svg='eye' text='See All' visible='only-mobile' />
     </div>

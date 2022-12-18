@@ -48,8 +48,6 @@ function ArtistPage() {
       .catch((err) => console.log(err))
   }, [])
 
-  console.log(tabBar)
-
   return (
     <div className="artist-page">
 

@@ -31,6 +31,12 @@
   font-weight: 400;
 }
 
+.nftCard-creator-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+}
+
 .nftCard-footer {
   display: flex;
   justify-content: space-between;
@@ -52,6 +58,54 @@
   line-height: 160%
 }
 
+.sceleton {
+  cursor: initial;
+}
+
+.sceleton .anim {
+  animation: anim 1s ease infinite;
+}
+
+.sceleton .h5 {
+  width: 200px;
+  height: 22px;
+  margin: 6px 0;
+}
+
+.sceleton p {
+  width: 164px;
+  height: 16px;
+  margin: 4px 0;
+}
+
+.sceleton .price {
+  width: 37px;
+  height: 13px;
+}
+
+.sceleton .highest {
+  width: 80px;
+  height: 13px;
+}
+
+.sceleton .nftCard-price-body {
+  width: 78px;
+  height: 16px;
+  margin: 4px 0;
+}
+
+@keyframes anim {
+  0% {
+    background: var(--i);
+  }
+  50% {
+    background: var(--j);
+  }
+  100% {
+    background: var(--i);
+  }
+}
+
 @media screen and (max-width: 740px) {
   .nftCard {
     width: 315px;
@@ -62,9 +116,12 @@
   .nftCard-body {
     padding: 20px 20px 25px;
   }
-  .nftCard-price-body{
+  .nftCard-price-body {
     font-weight: 400;
     font-size: 12px;
     line-height: 110%;
+  }
+  .sceleton .nftCard-price-body {
+    height: 12px;
   }
 }

@@ -33,14 +33,12 @@ function NftPage() {
 
         fetch(server + '/' + r.creator)
           .then(r => r.json())
-          .then(r => {
-            setCreator(r.name)
-          })
+          .then(r => setCreator(r.name))
 
         fetch(server + '/d/' + params.id + '.txt')
           .then(r => r.ok ? r.text() : '')
           .then(r => setDescription(r))
-          .catch((err) => console.log(err))
+        // .catch(err => console.log(err))
       })
   }, [params])
 
@@ -170,9 +168,8 @@ function NFTPageMore({ login, id }) {
   useEffect(() => {
     fetch(server + '/' + login)
       .then(r => r.json())
-      .then(r => {
-        setMoreNFT(r.item)
-      })
+      .then(r => setMoreNFT(r.item))
+    // .catch(err => console.log(err))
   }, [login])
 
   return (
