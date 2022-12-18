@@ -100,4 +100,11 @@
     font-size: 16px;
     line-height: 140%;
   }
+  .sceleton .collection-photo-main {
+    width: 315px;
+    height: 315px;
+  }
+  .collection-frame {
+    height: 95px;
+  }
 }

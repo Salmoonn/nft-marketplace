@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 const server = config.server;
 
 function TopCreators() {
-  const [topCreator, setTopCreator] = useState()
+  const [topCreator, setTopCreator] = useState([])
 
   useEffect(() => {
     fetch(server + '/topcreator')
@@ -28,14 +28,36 @@ function TopCreators() {
         <Button1 href='topcreators' svg='rocketLaunch' text='View Rankings' visible={'not-mobile'} />
       </div>
       <div className="top-creator-artist-cards">
-        {topCreator?.map((e, i) => <Card key={i} number={i} login={e} />)}
+        {topCreator.length === 0
+          ? Array(12).fill().map((e, i) =>
+            <CardSceleton
+              key={i}
+              visible={i < 6
+                ? i < 5
+                  ? ""
+                  : "not-mobile"
+                : "only-desktop"}
+            />
+          )
+          : topCreator.map((e, i) =>
+            <Card
+              key={i}
+              number={i}
+              login={e}
+              visible={i < 6
+                ? i < 5
+                  ? ""
+                  : "not-mobile"
+                : "only-desktop"}
+            />
+          )}
       </div>
       <Button1 href="topcreators" svg='rocketLaunch' text='View Rankings' visible={'only-mobile'} />
     </div>
   )
 }
 
-function Card({ number, login }) {
+function Card({ number, login, visible }) {
 
   const [avatar, setAvatar] = useState(defaultAvatar);
   const [name, setName] = useState('Cretor');
@@ -54,13 +76,7 @@ function Card({ number, login }) {
 
   return (
     <Link to={'/' + login}>
-      <div className={
-        number < 6
-          ? number < 5
-            ? "top-creator-artist-card smart column"
-            : "top-creator-artist-card smart column not-mobile"
-          : "top-creator-artist-card smart column only-desktop"
-      }>
+      <div className={'top-creator-artist-card smart column ' + visible}>
         <div className="top-creator-artist-card-header">
           <div className="top-creator-artist-card-number">
             <p className="space-mono" style={{ color: "#858584" }}>
@@ -78,6 +94,27 @@ function Card({ number, login }) {
         </div>
       </div>
     </Link>
+  )
+}
+
+function CardSceleton({ visible }) {
+
+  const color = {
+    "--i": "#333",
+    "--j": "#353535",
+  }
+
+  return (
+    <div className={'top-creator-artist-card column sceleton ' + visible}>
+      <div className="top-creator-artist-card-header">
+        <div className="top-creator-artist-card-number anim only-desktop" style={color} />
+        <div className="top-creator-avatar anim" style={color} />
+      </div>
+      <div className="top-creator-artist-card-info">
+        <h5 className="top-creator-artist-card-name work-sans anim" style={color} />
+        <div className="top-creator-total-sale anim" style={color} />
+      </div>
+    </div>
   )
 }
 

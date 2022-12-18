@@ -62,10 +62,6 @@
   cursor: initial;
 }
 
-.sceleton .anim {
-  animation: anim 1s ease infinite;
-}
-
 .sceleton .h5 {
   width: 200px;
   height: 22px;
@@ -92,18 +88,6 @@
   width: 78px;
   height: 16px;
   margin: 4px 0;
-}
-
-@keyframes anim {
-  0% {
-    background: var(--i);
-  }
-  50% {
-    background: var(--j);
-  }
-  100% {
-    background: var(--i);
-  }
 }
 
 @media screen and (max-width: 740px) {

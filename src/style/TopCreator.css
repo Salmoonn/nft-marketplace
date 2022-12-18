@@ -59,7 +59,6 @@
 .top-creator-avatar {
   border-radius: 100%;
   width: 120px;
-  /* height: 120px; */
   height: auto;
 }
 
@@ -83,12 +82,36 @@
 .top-creator-total-sale {
   display: flex;
   gap: 10px;
+  align-items: center;
 }
 
 .top-creator-EHT {
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
+}
+
+.sceleton .top-creator-artist-card-number {
+  width: 16px;
+  height: 16px;
+  margin: 7px;
+}
+
+.sceleton .top-creator-avatar {
+  height: 120px;
+}
+
+.sceleton .top-creator-artist-card-name{
+  width: 150px;
+  height: 22px;
+  margin: 7px 0;
+  border-radius: 20px;
+}
+
+.sceleton .top-creator-total-sale{
+  width: 150px;
+  height: 16px;
+  border-radius: 20px;
 }
 
 @media screen and (max-width: 1100px) {
@@ -113,5 +136,11 @@
   }
   .top-creator-artist-card-info {
     align-items: flex-start;
+  }
+  .sceleton .top-creator-avatar {
+    height: 60px;
+  }
+  .sceleton .top-creator-artist-card-name {
+    height: 16px;
   }
 }

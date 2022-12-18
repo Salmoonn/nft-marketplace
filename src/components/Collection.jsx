@@ -76,7 +76,7 @@ function CollectionSceleton({ color1, color2, visible = '' }) {
   return (
     <div className={'collection sceleton column ' + visible}>
       <div className="collection-photos">
-        <div className="smart collection-photo-main" style={color} />
+        <div className="collection-photo-main" style={color} />
         <div className="collection-frame">
           <div className="collection-photo-other" style={color} />
           <div className="collection-photo-other" style={color} />

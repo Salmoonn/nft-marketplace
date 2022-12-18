@@ -143,22 +143,10 @@ h5{
   line-height: 160%;
 }
 
-/* input:autofill {
-  background-color: white;
-  border: 2px solid blue;
-} */
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
    transition: background-color 600000s 0s, color 600000s 0s;
 }
-
-/* .work-sans {
-  font-family: 'Work Sans';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 140%;
-} */
 
 .column {
   display: flex;
@@ -181,6 +169,23 @@ input:-webkit-autofill:focus {
 .only-mobile {
   display: none;
 }
+
+.anim {
+  animation: anim 1s ease infinite;
+}
+
+@keyframes anim {
+  0% {
+    background: var(--i);
+  }
+  50% {
+    background: var(--j);
+  }
+  100% {
+    background: var(--i);
+  }
+}
+
 
 @media screen and (max-width: 1100px) {
 
@@ -227,6 +232,7 @@ input:-webkit-autofill:focus {
   
   .only-desktop {
     display: none;
+    visibility: hidden;
   }
 
   .not-laptop {
