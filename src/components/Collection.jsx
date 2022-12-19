@@ -38,13 +38,13 @@ function Collection({ visible = '', id, bg = '' }) {
   return (
     <div className={'collection column ' + visible}>
       <div className="collection-photos">
-        <Link to="#"><img className="smart collection-photo-main" src={unit[0]}></img></Link>
+        <Link to="#"><img className="collection-photo-main smart" src={unit[0]}></img></Link>
         <div className="collection-frame">
           <Link to="#">
-            <img className="smart" src={unit[1]} />
+            <img className="collection-photo-other smart" src={unit[1]} />
           </Link>
           <Link to="#">
-            <img className="smart" src={unit[2]} />
+            <img className="collection-photo-other smart" src={unit[2]} />
           </Link>
           <Link to="#">
             <div className="collection-frame-number smart">

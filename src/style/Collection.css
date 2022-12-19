@@ -17,6 +17,14 @@
   overflow: hidden;
 }
 
+.collection-photo-main {
+  height: 330px;
+}
+
+.collection-photo-other {
+  height: 100px;
+}
+
 .collection-frame{
   display: flex;
   gap: 15px;
@@ -105,6 +113,12 @@
     height: 315px;
   }
   .collection-frame {
+    height: 95px;
+  }
+  .collection-photo-main {
+    height: 315px;
+  }
+  .collection-photo-other {
     height: 95px;
   }
 }
