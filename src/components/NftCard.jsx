@@ -7,7 +7,7 @@ import defaultAvatar from '../img/avatar.png'
 import config from '../config.json'
 const server = config.server
 
-function NftCard({ id, visible = false, bg }) {
+function NftCard({ id, visible = '', bg }) {
 
   const [card, setCard] = useState(defaultAvatar)
   const [creator, setCreator] = useState('Creator')
@@ -36,7 +36,7 @@ function NftCard({ id, visible = false, bg }) {
   }, [])
 
   return (
-    <Link to={'/unit/' + id} className={visible ? visible : ''}>
+    <Link to={'/unit/' + id} className={visible}>
       <div className="nftCard smart" style={{ background: bg }}>
         <img className="nftCard-image" src={card} />
         <div className="nftCard-body">
@@ -63,7 +63,7 @@ function NftCard({ id, visible = false, bg }) {
   )
 }
 
-function NftCardSceleton({ visible, bg, color1, color2 }) {
+function NftCardSceleton({ visible = '', bg, color1, color2 }) {
 
   const anim = {
     "--i": color1,
@@ -71,7 +71,7 @@ function NftCardSceleton({ visible, bg, color1, color2 }) {
   }
 
   return (
-    <Link className={visible ? visible : ''}>
+    <Link className={visible}>
       <div className="nftCard sceleton" style={{ background: bg }}>
         <div className="nftCard-image anim" style={anim} />
         <div className="nftCard-body">

@@ -15,6 +15,7 @@ function Trending() {
       .then(r => setColl(r))
   }, [])
 
+
   return (
     <div className="trending wrapper column">
       <div className="trending-head column">
@@ -27,14 +28,14 @@ function Trending() {
             <Collection
               key={i}
               id={e}
-              visible={i == 0 ? '' : i == 1 ? 'not-mobile' : 'only-desktop'}
+              visible={i === 0 ? '' : i === 1 ? 'not-mobile' : 'only-desktop'}
             />)
           : Array(3).fill().map((e, i) =>
             <CollectionSceleton
               key={i}
               color1="#333"
               color2="#393939"
-              visible={i == 0 ? '' : i == 1 ? 'not-mobile' : 'only-desktop'}
+              visible={i === 0 ? '' : i === 1 ? 'not-mobile' : 'only-desktop'}
             />
           )
         }

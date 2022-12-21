@@ -35,6 +35,7 @@ function MoreNFT() {
               bg="#3b3b3b"
               color1="#444"
               color2="#494949"
+              visible={i == 2 ? 'not-laptop' : ''}
             />
           )
           : cards.map((e, i) =>
@@ -42,7 +43,7 @@ function MoreNFT() {
               key={i}
               id={e.id}
               bg='#3b3b3b'
-              visible={i == 2 && 'not-laptop'}
+              visible={i == 2 ? 'not-laptop' : ''}
             />
           )
         }

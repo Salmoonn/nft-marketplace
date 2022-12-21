@@ -5,7 +5,6 @@
 }
 
 .collection img {
-  border-radius: 20px;
   object-fit: cover;
 }
 
@@ -18,11 +17,15 @@
 }
 
 .collection-photo-main {
+  border-radius: 20px;
   height: 330px;
+  width: 330px;
 }
 
 .collection-photo-other {
+  border-radius: 20px;
   height: 100px;
+  width: 100px;
 }
 
 .collection-frame{
@@ -100,6 +103,17 @@
   }
 }
 
+.anim-load {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  animation: anim 1s linear infinite;
+}
+
+.artist-avatar {
+  border-radius: 100%;
+}
+
 @media screen and (max-width: 740px) {
   .collection-card-frame {
     height: 95px;
@@ -117,8 +131,15 @@
   }
   .collection-photo-main {
     height: 315px;
+    width: 315px;
   }
   .collection-photo-other {
     height: 95px;
   }
+}
+
+.load-image {
+  width: 100%;
+  height: 100%;
+  background: green;
 }
