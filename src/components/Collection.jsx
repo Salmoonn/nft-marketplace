@@ -9,6 +9,7 @@ import config from '../config.json'
 const server = config.server
 
 function Collection({ visible = '', id }) {
+  const [isLoad, setIsLoad] = useState(false);
   const [name, setName] = useState('Name');
   const [login, setLogin] = useState('');
   const [creator, setCreator] = useState('Creator');
@@ -16,15 +17,12 @@ function Collection({ visible = '', id }) {
   const [total, setTotal] = useState();
   const [imageSrc, setImageSrc] = useState([]);
   const [image, setImage] = useState([]);
-  // const [isLoad, setIsLoad] = useState([false, false, false])
-  // const [mainImage, setMainImage] = useState(false);
-  // const [otherImage, setOtherImage] = useState(false);
-  // const [otherImage2, setOtherImage2] = useState(false);
 
   useEffect(() => {
     fetch(server + '/c/' + id)
       .then(r => r.json())
       .then(r => {
+        setIsLoad(true)
         setName(r.name);
         setTotal(r.body.length);
         setCreatorAvatar(server + '/a/' + r.creator + '.png')
@@ -38,29 +36,36 @@ function Collection({ visible = '', id }) {
   }, [])
 
   return (
-    <div className={'collection column ' + visible}>
-      <div className="collection-photos">
-        <CustomImage src={imageSrc[0]} main={true} />
-        <div className="collection-frame">
-          <CustomImage src={imageSrc[1]} />
-          <CustomImage src={imageSrc[2]} />
-          <Link to="/">
-            <div className="collection-frame-number smart">
-              <div className="space-mono h5">{total - 3}+</div>
+    isLoad
+      ? <div className={'collection column ' + visible} >
+        <div className="collection-photos">
+          <CustomImage src={imageSrc[0]} main={true} />
+          <div className="collection-frame">
+            <CustomImage src={imageSrc[1]} />
+            <CustomImage src={imageSrc[2]} />
+            <Link to="/">
+              <div className="collection-frame-number smart">
+                <div className="space-mono h5">{total - 3}+</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+        <div className="collection-info column">
+          <div className="work-sans h5">{name}</div>
+          <Link to={login}>
+            <div className="collection-artist-card">
+              <img className='artist-avatar' width={24} src={creatorAvatar}></img>
+              <div className="base-body-work collection-artist-name">{creator}</div>
             </div>
           </Link>
         </div>
       </div>
-      <div className="collection-info column">
-        <div className="work-sans h5">{name}</div>
-        <Link to={login}>
-          <div className="collection-artist-card">
-            <img className='artist-avatar' width={24} src={creatorAvatar}></img>
-            <div className="base-body-work collection-artist-name">{creator}</div>
-          </div>
-        </Link>
-      </div>
-    </div>
+      : <CollectionSceleton
+        visible={visible}
+        color1="#333"
+        color2="#393939"
+      />
+
   )
 }
 
@@ -81,8 +86,8 @@ function CustomImage({ src, main = false }) {
     <Link to='/'>
       {isLoad
         ? main
-          ? <img src={src} className="collection-photo-main" />
-          : <img src={src} className="collection-photo-other" />
+          ? <img src={src} className="collection-photo-main smart" />
+          : <img src={src} className="collection-photo-other smart" />
         : main
           ? <div className="collection-photo-main "><AnimLoad /></div>
           : <div className="collection-photo-other"><AnimLoad /></div>

@@ -11,6 +11,7 @@ import { ArtistPage } from "./pages/ArtistPage";
 import { NftPage } from "./pages/NftPage";
 import { TopCreatorsPage } from './pages/TopCreatorsPage';
 import { Marketplace } from './pages/Marketplace';
+import { Add } from './pages/Add';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path='unit/:id' element={<NftPage />} />
         <Route path='topcreators' element={<TopCreatorsPage />} />
         <Route path='marketplace' element={<Marketplace />} />
+        <Route path='add' element={<Add />} />
       </Route>
     </Routes>
   );
